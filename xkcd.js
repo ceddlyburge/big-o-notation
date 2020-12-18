@@ -63,7 +63,7 @@ function xkcdplot() {
             .attr("d", axis([[0, y0], [width, y0]]));
         el.append("svg:path")
             .attr("class", "y axis")
-            .attr("d", axis([[x0, 3], [x0, height]]));
+            .attr("d", axis([[x0, 3], [x0, height - 3]]));
 
         // Laboriously draw some arrows at the ends of the axes.
         var aa = arrowAspect * arrowSize,
