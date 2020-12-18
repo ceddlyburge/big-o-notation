@@ -63,7 +63,7 @@ function xkcdplot() {
             .attr("d", axis([[0, y0], [width, y0]]));
         el.append("svg:path")
             .attr("class", "y axis")
-            .attr("d", axis([[x0, 0], [x0, height]]));
+            .attr("d", axis([[x0, 3], [x0, height]]));
 
         // Laboriously draw some arrows at the ends of the axes.
         var aa = arrowAspect * arrowSize,
@@ -77,7 +77,7 @@ function xkcdplot() {
             .attr("d", axis([[s - o, y0 + aa], [-o, y0], [s - o, y0 - aa]]));
         el.append("svg:path")
             .attr("class", "y axis arrow")
-            .attr("d", axis([[x0 + aa, s - o], [x0, -o], [x0 - aa, s - o]]));
+            .attr("d", axis([[x0 + aa, 3 + s - o], [x0, 3 -o], [x0 - aa, 3 + s - o]]));
         el.append("svg:path")
             .attr("class", "y axis arrow")
             .attr("d", axis([[x0 + aa, height - s + o], [x0, height + o], [x0 - aa, height - s + o]]));
@@ -85,6 +85,13 @@ function xkcdplot() {
         for (var i = 0, l = elements.length; i < l; ++i) {
             var e = elements[i];
             e.func(e.data, e.x, e.y, e.opts);
+
+            if (e.title) {
+                el.append("text")
+                    .attr("x", xscale(e.title.x))
+                    .attr("y", yscale(e.title.y))
+                    .text(e.title.text);  
+            }
         }
 
         // Add some axes labels.
@@ -109,7 +116,7 @@ function xkcdplot() {
     };
 
     // Adding plot elements.
-    xkcd.plot = function (data, opts) {
+    xkcd.plot = function (data, opts, title) {
         var x = function (d) { return d.x; },
             y = function (d) { return d.y; },
             cx = function (d) { return xscale(x(d)); },
@@ -118,15 +125,15 @@ function xkcdplot() {
             yl = d3.extent(data, y);
 
         // Rescale the axes.
-        xlim = xlim || xl;
-        xlim[0] = Math.min(xlim[0], xl[0]);
-        xlim[1] = Math.max(xlim[1], xl[1]);
+        // xlim = xlim || xl;
+        // xlim[0] = Math.min(xlim[0], xl[0]);
+        // xlim[1] = Math.max(xlim[1], xl[1]);
 
-        ylim = ylim || yl;
-        ylim[0] = Math.min(ylim[0], yl[0]);
-        ylim[1] = Math.max(ylim[1], yl[1]);
-        ylim[0] = ylim[0] - (ylim[1] - ylim[0]) / 16;
-        ylim[1] = ylim[1] + (ylim[1] - ylim[0]) / 16;
+        // ylim = ylim || yl;
+        // ylim[0] = Math.min(ylim[0], yl[0]);
+        // ylim[1] = Math.max(ylim[1], yl[1]);
+        // ylim[0] = ylim[0] - (ylim[1] - ylim[0]) / 16;
+        // ylim[1] = ylim[1] + (ylim[1] - ylim[0]) / 16;
 
         // Add the plotting function.
         elements.push({
@@ -134,8 +141,10 @@ function xkcdplot() {
                         func: lineplot,
                         x: cx,
                         y: cy,
-                        opts: opts
+                        opts: opts,
+                        title: title
                       });
+
 
         return xkcd;
     };

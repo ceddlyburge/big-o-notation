@@ -2,174 +2,159 @@
 
 $(document).ready(function() {
 
+    var f = [];
+    function factorial (n) {
+        if (n == 0 || n == 1)
+            return 1;
+        if (f[n] > 0)
+            return f[n];
+        return f[n] = factorial(n-1) * n;
+    }
+
     function f1 (x) {
-        return Math.exp(-0.5 * (x - 1) * (x - 1)) * Math.sin(x + 0.2) + 0.05;
+        return 5;
     }
-    function f2 (x) {
-        return 0.5 * Math.cos(x - 0.5) + 0.1;
-    }
-    var xmin = -1.0,
-        xmax = 7,
-        N = 100,
-        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+    var xmin = 1.0,
+        xmax = 100.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
             return {x: d, y: f1(d)};
         }),
-        data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f2(d)};
-        }),
-        parameters = {  title: "Examples",
-                        xlabel: "Yumminess",
-                        ylabel: "Velociraptor Speed",
-                        xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] },
+        parameters = {  
+            title: "O(1) - Constant Time",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
         plot = xkcdplot();
     plot("#examples", parameters);
-    plot.plot(data);
-    plot.plot(data2, {stroke: "red"});
+    plot.plot(data, {stroke: "steelblue"});
     plot.draw();
 
 
+    function f2 (x) {
+        if (x == 0) return 10; else return Math.log2(x) + 10;
+    }
 
-    function f3 (x) {
-        return Math.cos(x);
-    }
-    function f4 (x) {
-        return Math.sin(x);
-    }
-    var xmin = -1.0,
-        xmax = 14,
-        N = 100,
-        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f3(d)};
+    var xmin = 1.0,
+        xmax = 100.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f2(d)};
         }),
-        data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f4(d)};
-        }),
-        parameters = {  title: "Sin(x) and Cos(x)",
-                        xlabel: "X",
-                        ylabel: "Y",
-                        xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] },
+        parameters = {  
+            title: "O(log n) - Logarithmic Time",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
         plot = xkcdplot();
     plot("#examples", parameters);
-    plot.plot(data);
-    plot.plot(data2, {stroke: "red"});
+    plot.plot(data, {stroke: "tomato"});
+    plot.draw();
+
+
+    function f3 (x) {
+        return x + 10;
+    }
+    var xmin = 1.0,
+        xmax = 100.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f3(d)};
+        }),
+        parameters = {  
+            title: "O(n) - Linear Time",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
+        plot = xkcdplot();
+    plot("#examples", parameters);
+    plot.plot(data, {stroke: "mediumaquamarine"});
+    plot.draw();
+
+
+    function f4 (x) {
+        return x * x + 10;
+    }
+
+    var xmin = 1.0,
+        xmax = 11.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f4(d)};
+        }),
+        parameters = {  
+            title: "O(n^2) - Quadratic Time",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
+        plot = xkcdplot();
+    plot("#examples", parameters);
+    plot.plot(data, {stroke: "pink"});
     plot.draw();
 
 
 
     function f5 (x) {
-        return Math.pow(x, 2);
+        if (x > 5) return 110; else return factorial(x) + 10;
     }
+
+    var xmin = 1.0,
+        xmax = 7.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f5(d)};
+        }),
+        parameters = {  
+            title: "O(n!) - Factorial Time",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
+        plot = xkcdplot();
+    plot("#examples", parameters);
+    plot.plot(data, {stroke: "slateblue"});
+    plot.draw();
+
     function f6 (x) {
         return -Math.pow(x, 2);
     }
-    function f7 (x) {
-        return 2 * x;
-    }
-    function f8 (x) {
-        return 80;
-    }
-    var xmin = -10,
-        xmax = 10,
-        N = 100,
-        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
+
+    var xmin = 1.0,
+        xmax = 100.0,
+        data = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f1(d)};
+        }),
+        data2 = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f2(d)};
+        }),
+        data3 = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f3(d)};
+        }),
+        data4 = d3.range(xmin, xmax, 1).map(function (d) {
+            return {x: d, y: f4(d)};
+        }),
+        data5 = d3.range(xmin, xmax, 1).map(function (d) {
             return {x: d, y: f5(d)};
         }),
-        data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f6(d)};
-        }),
-        data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f7(d)};
-        }),
-        data4 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f8(d)};
-        }),
-        parameters = {  title: "X^2, -X^2, 2X, and 80",
-                        xlabel: "# of Apple Devices",
-                        ylabel: "Fanboy Levels",
-                        xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] };
+        parameters = {  
+            title: "Big O Relative Times",
+            xlabel: "Birthday Party Guests",
+            ylabel: "Cake Making Time",
+            xlim: [-2, 100],
+            ylim: [-5, 100],
+        },
         plot = xkcdplot();
     plot("#examples", parameters);
-    plot.plot(data);
-    plot.plot(data2, {stroke: "red"});
-    plot.plot(data3, {stroke: "green"});
-    plot.plot(data4, {stroke: "purple"});
+    plot.plot(data, {stroke: "steelblue"}, { text: "O(1)", x: 95, y: 7 });
+    plot.plot(data2, {stroke: "tomato"}, { text: "O(log n)", x: 87, y: 20 });
+    plot.plot(data3, {stroke: "mediumaquamarine"}, { text: "O(n)", x: 93, y: 98 });
+    plot.plot(data4, {stroke: "pink"}, { text: "O(n^2)", x: 11, y: 103 });
+    plot.plot(data5, {stroke: "slateblue"}, { text: "O(n!)", x: -3, y: 103 });
     plot.draw();
 
-
-
-    function f9 (x) {
-        return x * Math.cos(x);
-    }
-    var xmin = -100,
-        xmax = 100,
-        N = 250,
-        data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-            return {x: d, y: f9(d)};
-        }),
-        parameters = {  title: "X * cos(X)",
-                        xlabel: "Chaos",
-                        ylabel: "Insanity",
-                        xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] };
-        plot = xkcdplot();
-    plot("#examples", parameters);
-    plot.plot(data);
-    plot.draw();
-
-
-
-    // function f10 (x) {
-    //     return 10;
-    // }
-    // function f11 (x) {
-    //     return 9.8;
-    // }
-    // function f12 (x) {
-    //     if (x >= 8 && x < 9) return 0;
-    //     return 10.2;
-    // }
-    // var xmin = 0,
-    //     xmax = 10,
-    //     N = 100,
-    //     data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-    //         return {x: d, y: f10(d)};
-    //     }),
-    //     data2 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-    //         return {x: d, y: f11(d)};
-    //     }),
-    //     data3 = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-    //         return {x: d, y: f12(d)};
-    //     }),
-    //     parameters = {  title: "Amazon EC2 Uptime",
-    //                     xlabel: "Time",
-    //                     ylabel: "Uptime",
-    //                     xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] };
-    //     plot = xkcdplot();
-    // plot("#examples", parameters);
-    // plot.plot(data);
-    // plot.plot(data2, {stroke: "red"});
-    // plot.plot(data3, {stroke: "green"});
-    // plot.draw();
-    // $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[4]);
-
-
-
-    // function f13 (x) {
-    //     return Math.pow(x, 2);
-    // }
-    // var xmin = 0,
-    //     xmax = 10,
-    //     N = 100,
-    //     data = d3.range(xmin, xmax, (xmax - xmin) / N).map(function (d) {
-    //         return {x: d, y: f13(d)};
-    //     }),
-    //     parameters = {  title: "Ruby on Rails vs Brogrammers",
-    //                     xlabel: "RoR Popularity",
-    //                     ylabel: "# of Brogrammers",
-    //                     xlim: [xmin - (xmax - xmin) / 16, xmax + (xmax - xmin) / 16] };
-    //     plot = xkcdplot();
-    // plot("#examples", parameters);
-    // plot.plot(data, {stroke: "red"});
-    // plot.draw();
-    // $('<h3>Inspired by <a href="https://twitter.com/samratjp" target="_blank">@samratjp</a></h3>').insertAfter($("#examples h1")[5]);
 
 });
