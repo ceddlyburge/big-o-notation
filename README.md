@@ -1,12 +1,13 @@
-[Create your own XKCD-style Graphs](http://xkcdgraphs.com/)
-===============================================================
+# Big O Notation
 
-Original xkcd.js script created by [Dan Foreman-Mackey](http://dan.iel.fm/xkcd/). Simple graph creation UI by [Kevin Xu](https://github.com/imkevinxu) and [Charlie Guo](https://github.com/charlierguo).
+This repo contains the source materials for a [Big O Notation blog post]()
 
-### [See Example Graphs](http://xkcdgraphs.com/)
+# Media
 
-* sin(x) and cos(x)
-* x^2, -x^2, 2x, and 80
-* x * cos(x)
+The media folder has images for the blog post.
 
-![Example Graphs](graph.png)
+The pictures of cakes are drawn by me, and free to use.
+
+The [stick people having a party are from istockphoto](https://www.istockphoto.com/vector/stick-figure-people-party-gm165740895-14066932), and are purchased by me (Cedd Burge). I have permissions to use these on the internet, but anybody else will need to purchase them separately I think.
+
+The xkcd style graphs in the blog post are from [index.html / examples.js](examples.js). This originally comes from https://github.com/imkevinxu/xkcdgraphs, but adds descriptions of the lines, and maintains the original scale. The original xkcd.js script is by [Dan Foreman-Mackey](http://dan.iel.fm/xkcd/). To see these graphs you can `npm install serve` and then `serve` in this directory, which will start a local webserver to serve index.html.
