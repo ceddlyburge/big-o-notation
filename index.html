@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,79 +5,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>Create your own XKCD-style Graphs</title>
-    <meta name="description" content="Instant XKCD-style Graphs created in Javascript D3 for your enjoyment" />
-    <meta name="author" content="Kevin Xu, Charlie Guo" />
-    <!-- <link rel="icon" type="image/x-icon" href="graph.png" /> -->
+    <title>XKCD-style Graphs for Big O Notation</title>
 
-    <!-- Apple Meta Data -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
-
-    <!-- Facebook Meta Data -->
-    <meta property="og:url" content="http://xkcdgraphs.com" />
-    <meta property="og:title" content="Create your own XKCD-style Graphs" />
-    <meta property="og:description" content="Instant XKCD-style Graphs created in Javascript D3 for your enjoyment" />
-    <meta property="og:image" content="http://xkcdgraphs.com/graph.png" />
-    <meta property="og:type" content="website" />
-
-    <!-- CSS Files -->
     <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="style.css" />
-
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-36917714-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=407882832614060";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
 </head>
 <body>
 
     <div class="container">
-
         <h1>XKCD-style Graphs for Big O Notation</h1>
-        <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a></h2>
+        <h2>Major credit to <a href="http://dan.iel.fm/xkcd/" target="_blank">Dan Foreman-Mackey</a> and [Kevin Xu](https://github.com/imkevinxu/xkcdgraphs)</h2>
+    </div>
 
     <div id="examples"></div>
 
-    <footer class="container">
-
-        <div class="social">
-            <div class="fb-like" data-href="http://xkcdgraphs.com/" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="Create your own XKCD-style Graphs instantly" data-via="imkevinxu">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
-
-        <div class="credit">
-            <a href="https://twitter.com/charlierguo" target="_blank">@charlierguo</a>
-            &nbsp;
-            <a href="http://twitter.com/imkevinxu" target="_blank">@imkevinxu</a>
-        </div>
-
-    </footer>
-
-    <a href="https://github.com/imkevinxu/xkcdgraphs" target="_blank">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    <a href="https://github.com/ceddlyburge/big-o-notation" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork Big O Notation on GitHub">
     </a>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="d3.v2.min.js"></script>
     <script src="jquery.textchange.min.js"></script>
