@@ -1,6 +1,6 @@
 # Big O Notation
 
-This repo contains the source materials for a [Big O Notation blog post]()
+This repo contains the source materials for a [Big O Notation blog post](https://www.freecodecamp.org/news/big-o-notation/)
 
 # Media
 
